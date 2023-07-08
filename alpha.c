@@ -11,6 +11,7 @@
 #define LIVES 3
 #define BUMP 0.1
 #define SLEEP_MS 10
+#define WINNER_SCORE 60
 
 int msleep(unsigned int tms) {
   return usleep(tms * 1000);
@@ -22,6 +23,14 @@ void alpha(int seed, int x, const int start) {
     static int lives = LIVES;
 
     unsigned int currentTime = time(NULL);
+    unsigned int elapsedTime = currentTime - start;
+
+    // Win scenario
+    if(elapsedTime == WINNER_SCORE) {
+        fprintf(stderr, "\rCongratulations! You lived. You won at life.\n\nGoodbye.");
+        return;
+    }
+
     // increase x
     x += 1;
 
@@ -42,22 +51,22 @@ void alpha(int seed, int x, const int start) {
     // you die
     if(y <= 0 || y == SEED_Y) {
 
+        lives -= 1;
 
         if(y == SEED_Y) {
             fprintf(stderr, "\r          ");
-            fprintf(stderr, "\n\nYou have died an instant death. Your lived: %d seconds\n", currentTime - start);
+            fprintf(stderr, "\n\nYou have died an instant death. You lived: %d seconds\n", currentTime - start);
             return;
         }
 
-        if(lives == 0) {
+        if(lives <= 0) {
             fprintf(stderr, "\r          ");
-            fprintf(stderr, "\n\nYou have died. Your score was: %d\n", currentTime - start);
+            fprintf(stderr, "\n\nYou are out of lives. You lived for: %d seconds\n", currentTime - start);
             return;
         } else {
             y = seed;
-            lives -= 1;
 
-            fprintf(stderr, "\n*ouch* %d lives left.\n",lives);
+            fprintf(stderr, "\r*ouch* %d lives left.\n",lives);
         }
     }
 

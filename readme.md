@@ -69,3 +69,47 @@ Go!
 
 You have died an instant death. Your lived: 40 seconds
 ```
+
+## Try and make it to the end
+
+Can you live long enough to win the game? Only chance will tell.
+
+```
+-> % ./alpha
+Enter an integer:800
+
+3
+
+2
+
+1
+
+Go!
+
+*ouch* 2 lives left.
+*ouch* 1 lives left.
+Congratulations! You lived. You won at life.
+
+Goodbye.
+```
+
+Will luck be ever in you favor. Same numbers can have drastically different results.
+
+```
+-> % ./alpha
+Enter an integer:800
+
+3
+
+2
+
+1
+
+Go!
+
+*ouch* 2 lives left.
+*ouch* 1 lives left.
+
+
+You are out of lives. You lived for: 0 seconds
+```
