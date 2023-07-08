@@ -18,9 +18,9 @@ And run the program with:
 ./alpha
 ```
 
-## How long can you survive?
+### Can you survive?
 
-Can you find the best number to survive the longest? Change the source code and see if you can make a better alpha.
+Can you find the best number to survive the longest?
 
 ## Sample output
 
