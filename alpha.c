@@ -45,7 +45,7 @@ void alpha(int seed, int x, const int start) {
 
         if(y == SEED_Y) {
             fprintf(stderr, "\r          ");
-            fprintf(stderr, "\n\nYou have died an instant death. Your score was: %d\n", currentTime - start);
+            fprintf(stderr, "\n\nYou have died an instant death. Your lived: %d seconds\n", currentTime - start);
             return;
         }
 
